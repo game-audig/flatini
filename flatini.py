@@ -25,3 +25,7 @@ def parse_ini(text: str) -> dict[str, dict[str, str]]:
     if not out[""]:
         out.pop("")
     return out
+
+
+def get_value(doc: dict[str, dict[str, str]], section: str, key: str, default: str = "") -> str:
+    return doc.get(section, {}).get(key, default)
