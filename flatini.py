@@ -27,5 +27,9 @@ def parse_ini(text: str) -> dict[str, dict[str, str]]:
     return out
 
 
+def section_names(doc: dict[str, dict[str, str]]) -> list[str]:
+    return [name for name in doc if name]
+
+
 def get_value(doc: dict[str, dict[str, str]], section: str, key: str, default: str = "") -> str:
     return doc.get(section, {}).get(key, default)
