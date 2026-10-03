@@ -31,5 +31,9 @@ def section_names(doc: dict[str, dict[str, str]]) -> list[str]:
     return [name for name in doc if name]
 
 
+def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
+    return name in doc
+
+
 def get_value(doc: dict[str, dict[str, str]], section: str, key: str, default: str = "") -> str:
     return doc.get(section, {}).get(key, default)
