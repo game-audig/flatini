@@ -31,6 +31,10 @@ def section_names(doc: dict[str, dict[str, str]]) -> list[str]:
     return [name for name in doc if name]
 
 
+def section_size(doc: dict[str, dict[str, str]], name: str) -> int:
+    return len(doc.get(name) or {})
+
+
 def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
     return name in doc
 
