@@ -5,7 +5,7 @@ Parse a simple INI file: one section level, `key = value`, and `#` or `;` commen
 Keys before the first section live under `""`. A repeated section continues the same dict. The parser does not interpolate and does not support nested sections.
 
 ```python
-from flatini import parse_ini, get_value, section_names, has_section
+from flatini import parse_ini, get_value, section_names, has_section, section_size
 
 doc = parse_ini("[app]\nname = demo\n")
 get_value(doc, "app", "name")  # "demo"
