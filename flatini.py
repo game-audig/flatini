@@ -35,6 +35,10 @@ def section_size(doc: dict[str, dict[str, str]], name: str) -> int:
     return len(doc.get(name) or {})
 
 
+def has_key(doc: dict[str, dict[str, str]], section: str, key: str) -> bool:
+    return key in (doc.get(section) or {})
+
+
 def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
     return name in doc
 
