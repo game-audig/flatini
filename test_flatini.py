@@ -1,6 +1,6 @@
 import unittest
 
-from flatini import get_value, has_section, parse_ini, section_names, section_size
+from flatini import get_value, has_key, has_section, parse_ini, section_names, section_size
 
 
 class FlatiniTest(unittest.TestCase):
@@ -20,6 +20,8 @@ class FlatiniTest(unittest.TestCase):
         self.assertFalse(has_section(doc, "missing"))
         self.assertEqual(section_size(doc, "app"), 1)
         self.assertEqual(section_size(doc, "missing"), 0)
+        self.assertTrue(has_key(doc, "app", "name"))
+        self.assertFalse(has_key(doc, "app", "missing"))
 
     def test_empty_section_dropped(self) -> None:
         self.assertEqual(parse_ini("[only]\na=b\n"), {"only": {"a": "b"}})
