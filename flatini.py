@@ -39,6 +39,10 @@ def has_key(doc: dict[str, dict[str, str]], section: str, key: str) -> bool:
     return key in (doc.get(section) or {})
 
 
+def keys_in(doc: dict[str, dict[str, str]], section: str) -> list[str]:
+    return list(doc.get(section) or {})
+
+
 def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
     return name in doc
 
