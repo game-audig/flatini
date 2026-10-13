@@ -43,6 +43,10 @@ def keys_in(doc: dict[str, dict[str, str]], section: str) -> list[str]:
     return list(doc.get(section) or {})
 
 
+def section_count(doc: dict[str, dict[str, str]]) -> int:
+    return len(section_names(doc))
+
+
 def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
     return name in doc
 
