@@ -47,6 +47,10 @@ def section_count(doc: dict[str, dict[str, str]]) -> int:
     return len(section_names(doc))
 
 
+def empty_sections(doc: dict[str, dict[str, str]]) -> list[str]:
+    return [name for name in section_names(doc) if not doc.get(name)]
+
+
 def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
     return name in doc
 
