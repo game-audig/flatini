@@ -51,6 +51,10 @@ def empty_sections(doc: dict[str, dict[str, str]]) -> list[str]:
     return [name for name in section_names(doc) if not doc.get(name)]
 
 
+def blank_in(doc: dict[str, dict[str, str]], section: str) -> list[str]:
+    return [key for key, value in (doc.get(section) or {}).items() if value == ""]
+
+
 def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
     return name in doc
 
