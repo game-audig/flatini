@@ -55,6 +55,10 @@ def blank_in(doc: dict[str, dict[str, str]], section: str) -> list[str]:
     return [key for key, value in (doc.get(section) or {}).items() if value == ""]
 
 
+def filled_in(doc: dict[str, dict[str, str]], section: str) -> list[str]:
+    return [key for key, value in (doc.get(section) or {}).items() if value != ""]
+
+
 def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
     return name in doc
 
