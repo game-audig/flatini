@@ -69,3 +69,6 @@ def has_section(doc: dict[str, dict[str, str]], name: str) -> bool:
 
 def get_value(doc: dict[str, dict[str, str]], section: str, key: str, default: str = "") -> str:
     return doc.get(section, {}).get(key, default)
+
+def blank_count_in(doc: dict[str, dict[str, str]], section: str) -> int:
+    return len(blank_in(doc, section))
