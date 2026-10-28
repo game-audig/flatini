@@ -1,6 +1,6 @@
 import unittest
 
-from flatini import blank_in, empty_sections, filled_count, filled_in, get_value, has_key, has_section, keys_in, parse_ini, section_count, section_names, section_size
+from flatini import blank_in, empty_sections, filled_count, filled_in, get_value, has_key, has_section, keys_in, parse_ini, section_count, section_names, section_size, blank_count_in
 
 
 class FlatiniTest(unittest.TestCase):
@@ -32,6 +32,8 @@ class FlatiniTest(unittest.TestCase):
     def test_empty_section_dropped(self) -> None:
         self.assertEqual(parse_ini("[only]\na=b\n"), {"only": {"a": "b"}})
 
+
+        self.assertEqual(blank_count_in({"app": {"name": "demo", "note": ""}}, "app"), 1)
 
 if __name__ == "__main__":
     unittest.main()
