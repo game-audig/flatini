@@ -72,3 +72,6 @@ def get_value(doc: dict[str, dict[str, str]], section: str, key: str, default: s
 
 def blank_count_in(doc: dict[str, dict[str, str]], section: str) -> int:
     return len(blank_in(doc, section))
+
+def filled_total(doc: dict[str, dict[str, str]]) -> int:
+    return sum(len(filled_in(doc, name)) for name in section_names(doc))
